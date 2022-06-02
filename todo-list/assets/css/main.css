@@ -1,3 +1,4 @@
 ul input[type=checkbox]:checked + .value {
     text-decoration: line-through;
+    color: rgb(156, 156, 156);
 }

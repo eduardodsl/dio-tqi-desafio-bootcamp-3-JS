@@ -7,7 +7,7 @@ class Main {
 
     /**
      * Method containing all the initialization logic of the application
-     * @return void
+     * @returns void
      */
     init(){
         
@@ -38,8 +38,8 @@ class Main {
     /**
      * Adds item to the todo list, argument item must be an instance of TodoListItem
      * or it will throw an error
-     * @param {TodoListItem} item item to be added to the todo list
-     * @return void
+     * @param {TodoListItem} item   item to be added to the todo list
+     * @returns {void}
      */
     addItem(item){
 
@@ -54,17 +54,23 @@ class Main {
 
     }
 
-    checkItem(id){
-        console.log(id);
+    /**
+     * Fectches the TodoItemList in the items list and sets its checked property to either true or false
+     * @param {number} id       item id to find and change
+     * @param {boolean} value   sets if item is checked or not
+     * @returns void
+     */
+    checkItem(id, value){
         this.items.forEach((e) => {
             if(e.id === parseInt(id)){
-                e.checked = true;
+                e.checked = value;
             }
         });
     }
 
     /**
      * Builds the HTML code required to show the todo list
+     * @return {void}
      */
     render(){
 
@@ -79,7 +85,7 @@ class Main {
         let checks = document.querySelectorAll('#tasks li input[type=checkbox]');
         checks.forEach(el => {
             el.addEventListener('click', (e) => {
-                this.checkItem(e.target.id.replace('check-'));
+                this.checkItem(e.target.id.replace('check-', ''), e.target.checked);
             });
         });
 
@@ -87,8 +93,15 @@ class Main {
 
 }
 
+/**
+ * Represents an individual item in the Todo List
+ */
 class TodoListItem {
 
+    /**
+     * @param {string} value
+     * @return {TodoListItem}
+     */
     constructor(value){
 
         if(!value){
@@ -99,9 +112,11 @@ class TodoListItem {
         this.checked = false;
     }
 
+    /**
+     * Builds a string representation of the Todo List Item
+     * @return {string}    the list item string as a string template
+     */
     textBody(){
-
-        console.log(this);
 
         const elementText = `<li>
             <label>
