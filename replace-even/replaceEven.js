@@ -17,12 +17,11 @@
  */
 function checkEvenNumbers(list, output = [], invalid = []){
 
-    // list must be an iterable or funcion will silently fail
-    if(!list?.length){
+    if(!Array.isArray(list)){
+        let err = new TypeError('first parameter "list" is not an array');
+        err.name = "TypeError";
         list = [];
-        output = [];
-        invalid = [];
-        return;
+        throw err;
     }
 
     for(let i = 0; i < list.length; i++){
@@ -45,13 +44,21 @@ function checkEvenNumbers(list, output = [], invalid = []){
 function main(args){
     
     if(args.length > 2){
-        const list = args.slice(2);
+
+        let list = args.slice(2);
         let invalid = [];
         let output = [];
-        checkEvenNumbers(list, output, invalid);
-        console.log('list sent..: ', list);
-        console.log('result.....: ', output);
-        console.log('invalid....: ', invalid);
+        try {
+            checkEvenNumbers(list, output, invalid);
+            console.log('list sent..: ', list);
+            console.log('result.....: ', output);
+            console.log('invalid....: ', invalid);
+            process.exit(0);
+        }catch (e) {
+            console.log(e);
+            process.exit(1);
+        }
+        
     }else{
         console.error('ERROR: no list argument sent!');
         process.exit(1);
