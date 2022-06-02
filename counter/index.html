@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Eduardo Augusto da Silva Leite
+        this is a basic app manipulating the DOM interface to create a counter
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Counter - DIO/TQI Bootcamp - Eduardo Augusto da Silva Leite</title>
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Counter / Contador</h1>
+            <div id="counter-main">
+                <label>
+                    <span>Quantity / Quantidade</span>
+                    <input id="qtd" type="number" value="1">
+                </label>
+                <button id="sub">-</button>
+                <span id="counter">0</span>
+                <button id="add">+</button>
+            </div>
+            <ul class="info">
+                <li>
+                    <span class="locale-en">
+                        Negative numbers will be colored as red;
+                    </span>
+                    <span class="locale-pt">
+                        Números negativos serão coloridos como vermelho;
+                    </span>
+                </li>
+                <li>
+                    <span class="locale-en">
+                        Input equal to 0 or not a number will be counted as 1;
+                    </span>
+                    <span class="locale-pt">
+                        Entradas iguais a 0 ou não-numéricos serão contados como 1;
+                    </span>
+                </li>
+                <li>
+                    <span class="locale-en">
+                        Negative numbers will be accepted and will work as expected in a sum or subtraction operation, there will be no sign conversion;
+                    </span>
+                    <span class="locale-pt">
+                        Números negativosserão aceitos e irão funcionar como esperado em uma operação de soma ou subtração, não haverá conversão de sinal;
+                    </span>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
