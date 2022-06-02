@@ -1,0 +1,3 @@
+ul input[type=checkbox]:checked + .value {
+    text-decoration: line-through;
+}
